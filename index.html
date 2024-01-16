@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Redirect</title>
+</head>
+<body>
+<script>
+    window.onload = function() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(userAgent)) {
+            window.location = "https://play.google.com/store/apps/details?id=com.spotify.music";
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            window.location = "https://apps.apple.com/app/spotify-music/id324684580";
+        } else {
+            window.location = "https://www.spotify.com"; // URL di fallback
+        }
+    };
+</script>
+</body>
+</html>
