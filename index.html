@@ -9,13 +9,100 @@
 <body>
 <script>
     window.onload = function() {
+        /* Recupero parametro app dall'url */
+        const urlParams = new URLSearchParams(window.location.search);
+        const app = urlParams.get('app');
+
+        const mappedApps = {
+            "airbnb": {
+                "android": "https://play.google.com/store/apps/details?id=com.airbnb.android&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/airbnb/id401626263"
+            },
+            "booking": {
+                "android": "https://play.google.com/store/apps/details?id=com.booking&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/booking-com-offerte-di-viaggio/id367003839"
+            },
+            "gmail": {
+                "android": "https://play.google.com/store/apps/details?id=com.google.android.gm&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/gmail-lemail-di-google/id422689480"
+            },
+            "googletask": {
+                "android": "https://play.google.com/store/apps/details?id=com.google.android.apps.tasks&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/google-tasks-get-things-done/id1353634006"
+            },
+            "satispay": {
+                "android": "https://play.google.com/store/apps/details?id=com.satispay.customer&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/satispay/id790287076"
+            },
+            "tiktok": {
+                "android": "https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/tiktok-video-live-e-musica/id835599320"
+            },
+            "paypal": {
+                "android": "https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/paypal/id283646709"
+            },
+            "facebook": {
+                "android": "https://play.google.com/store/apps/details?id=com.facebook.katana&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/facebook/id284882215"
+            },
+            "trenitalia": {
+                "android": "https://play.google.com/store/apps/details?id=com.lynxspa.prontotreno&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/trenitalia/id331050847"
+            },
+            "youtube": {
+                "android": "https://play.google.com/store/apps/details?id=com.google.android.youtube&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/youtube/id544007664"
+            },
+            "snapchat": {
+                "android": "https://play.google.com/store/apps/details?id=com.snapchat.android&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/snapchat/id447188370"
+            },
+            "wallet": {
+                "android": "https://play.google.com/store/apps/details?id=com.google.android.apps.walletnfcrel&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/apple-wallet/id1160481993"
+            },
+            "ryanair": {
+                "android": "https://play.google.com/store/apps/details?id=com.ryanair.cheapflights&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/ryanair/id504270602"
+            },
+            "amazon": {
+                "android": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/amazon/id335187483"
+            },
+            "whatsapp": {
+                "android": "https://play.google.com/store/apps/details?id=com.whatsapp&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/whatsapp-messenger/id310633997"
+            },
+            "meteo": {
+                "android": "https://play.google.com/store/apps/details?id=com.ilmeteo.android.ilmeteo&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/meteo/id1069513131"
+            },
+            "spotify": {
+                "android": "https://play.google.com/store/apps/details?id=com.spotify.music&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/spotify-musica-e-podcast/id324684580"
+            },
+            "instagram": {
+                "android": "https://play.google.com/store/apps/details?id=com.instagram.android&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/instagram/id389801252"
+            },
+            "contacts": {
+                "android": "https://play.google.com/store/apps/details?id=com.google.android.contacts&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/us/app/contacts/id1069512615"
+            },
+            "googlecalendar": {
+                "android": "https://play.google.com/store/apps/details?id=com.google.android.calendar&pcampaignid=web_share",
+                "ios": "https://apps.apple.com/it/app/google-calendar-organizzati/id909319292"
+            }
+        }
+
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         if (/android/i.test(userAgent)) {
-            window.location = "https://play.google.com/store/apps/details?id=com.spotify.music";
+            window.location = mappedApps[app]['android'];
         } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            window.location = "https://apps.apple.com/app/spotify-music/id324684580";
+            window.location = mappedApps[app]['ios'];
         } else {
-            window.location = "https://www.spotify.com"; // URL di fallback
+            window.location = "https://webeetle.com"; // URL di fallback
         }
     };
 </script>
